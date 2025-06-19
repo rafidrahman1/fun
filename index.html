@@ -4,413 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>বেতনের দাবিতে আন্দোলন</title>
-    <style>
-        /* বেসিক স্টাইল */
-        body {
-            margin: 0;
-            padding: 20px;
-            background: linear-gradient(135deg, #8B4513 0%, #CD853F 100%);
-            font-family: 'Arial', sans-serif;
-            overflow-x: hidden;
-            min-height: 100vh;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-            overflow: hidden;
-            position: relative;
-        }
-        
-        /* অফিস সিন স্টাইল */
-        .office-scene {
-            position: relative;
-            height: 600px;
-            background: linear-gradient(to bottom, #DEB887 0%, #D2B48C 100%);
-            overflow: hidden;
-            border: 3px solid #8B4513;
-        }
-        
-        /* অফিস ডেকোরেশন */
-        .office-decoration {
-            position: absolute;
-            z-index: 1;
-        }
-        
-        .window {
-            width: 200px;
-            height: 150px;
-            background: rgba(173, 216, 230, 0.4);
-            border: 5px solid #8B4513;
-            top: 50px;
-            right: 100px;
-            animation: sunlight 8s infinite alternate;
-        }
-        
-        .table {
-            width: 300px;
-            height: 20px;
-            background: #8B4513;
-            bottom: 100px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-        
-        .chair {
-            width: 30px;
-            height: 40px;
-            background: #A0522D;
-            bottom: 100px;
-            left: calc(50% - 60px);
-            transform: translateX(-50%);
-        }
-        
-        /* ক্যারেক্টার স্টাইল */
-        .character {
-            position: absolute;
-            transition: all 0.5s ease;
-            cursor: pointer;
-            z-index: 2;
-            transform-origin: bottom center;
-        }
-        
-        .character-body {
-            width: 80px;
-            height: 100px;
-            border-radius: 40px 40px 15px 15px;
-            position: relative;
-            border: 3px solid #2F4F4F;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            animation: breathe 3s infinite ease-in-out;
-            transition: all 0.5s ease;
-        }
-        
-        .character-head {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            position: absolute;
-            top: -25px;
-            left: 50%;
-            transform: translateX(-50%);
-            border: 3px solid #2F4F4F;
-            transition: all 0.3s ease;
-        }
-        
-        .character-face {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            transition: all 0.3s ease;
-        }
-        
-        .eyes {
-            display: flex;
-            gap: 8px;
-            margin-bottom: 5px;
-            transition: all 0.3s ease;
-        }
-        
-        .eye {
-            width: 6px;
-            height: 6px;
-            background: #000;
-            border-radius: 50%;
-            transition: all 0.3s ease;
-        }
-        
-        .mouth {
-            width: 12px;
-            height: 6px;
-            border: 2px solid #000;
-            border-top: none;
-            border-radius: 0 0 12px 12px;
-            transition: all 0.3s ease;
-        }
-        
-        .angry-eyes {
-            transform: rotate(10deg);
-        }
-        
-        .angry-mouth {
-            border-radius: 12px;
-            border-top: 2px solid #000;
-            height: 12px;
-            width: 16px;
-        }
-        
-        .character-name {
-            position: absolute;
-            bottom: -30px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: rgba(139, 69, 19, 0.9);
-            color: white;
-            padding: 6px 12px;
-            border-radius: 15px;
-            font-size: 14px;
-            font-weight: bold;
-            white-space: nowrap;
-            border: 2px solid #8B4513;
-            z-index: 3;
-        }
-        
-        /* স্পিচ বাবল */
-        .speech-bubble {
-            position: absolute;
-            background: #FFFAF0;
-            border: 3px solid #8B4513;
-            border-radius: 20px;
-            padding: 12px 18px;
-            max-width: 220px;
-            font-size: 14px;
-            font-weight: bold;
-            color: #2F4F4F;
-            opacity: 0;
-            transform: translateX(-50%) scale(0);
-            transition: all 0.3s ease;
-            z-index: 10;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-            top: -100px;
-            left: 50%;
-            transform-origin: center bottom;
-        }
-        
-        .speech-bubble::after {
-            content: '';
-            position: absolute;
-            bottom: -12px;
-            left: 25px;
-            width: 0;
-            height: 0;
-            border-left: 12px solid transparent;
-            border-right: 12px solid transparent;
-            border-top: 12px solid #FFFAF0;
-        }
-        
-        .speech-bubble::before {
-            content: '';
-            position: absolute;
-            bottom: -15px;
-            left: 22px;
-            width: 0;
-            height: 0;
-            border-left: 15px solid transparent;
-            border-right: 15px solid transparent;
-            border-top: 15px solid #8B4513;
-        }
-        
-        .speech-bubble.show {
-            opacity: 1;
-            transform: translateX(-50%) scale(1);
-        }
-        
-        /* ক্যারেক্টার স্পেসিফিক স্টাইল */
-        .jesan { left: 80px; top: 180px; }
-        .jesan .character-body { background: linear-gradient(45deg, #32CD32, #228B22); }
-        
-        .sakib { left: 250px; top: 220px; }
-        .sakib .character-body { background: linear-gradient(45deg, #4169E1, #1E90FF); }
-        
-        .rafid { left: 420px; top: 160px; }
-        .rafid .character-body { background: linear-gradient(45deg, #FF6347, #FF4500); }
-        
-        .tanvir { left: 590px; top: 200px; }
-        .tanvir .character-body { background: linear-gradient(45deg, #9370DB, #8A2BE2); }
-        
-        .imran { left: 160px; top: 380px; }
-        .imran .character-body { background: linear-gradient(45deg, #FFD700, #FFA500); }
-        
-        .nahiyan { left: 360px; top: 400px; }
-        .nahiyan .character-body { background: linear-gradient(45deg, #20B2AA, #008B8B); }
-        
-        .mohona { left: 520px; top: 360px; }
-        .mohona .character-body { background: linear-gradient(45deg, #DA70D6, #BA55D3); }
-        
-        /* এনিমেশন */
-        @keyframes breathe {
-            0%, 100% { transform: scale(1) translateY(0); }
-            50% { transform: scale(1.02) translateY(-3px); }
-        }
-        
-        @keyframes protest {
-            0%, 100% { transform: translateY(0) rotate(0deg) scale(1); }
-            25% { transform: translateY(-20px) rotate(-8deg) scale(1.1); }
-            75% { transform: translateY(-15px) rotate(8deg) scale(1.1); }
-        }
-        
-        @keyframes sunlight {
-            0% { box-shadow: inset 0 0 50px rgba(255, 255, 0, 0.2); }
-            100% { box-shadow: inset 0 0 100px rgba(255, 255, 0, 0.4); }
-        }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-        
-        /* প্রোটেস্ট স্টাইল */
-        .protesting {
-            animation: protest 1.2s infinite ease-in-out !important;
-        }
-        
-        .protesting .character-body {
-            box-shadow: 0 0 30px rgba(255, 0, 0, 0.5) !important;
-        }
-        
-        .angry-face .eyes {
-            transform: rotate(10deg);
-        }
-        
-        .angry-face .mouth {
-            border-radius: 12px;
-            border-top: 2px solid #000;
-            height: 12px;
-            width: 16px;
-        }
-        
-        /* গ্রুপ চ্যান্ট */
-        .group-chant {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: rgba(255, 0, 0, 0.9);
-            color: white;
-            padding: 20px 40px;
-            border-radius: 15px;
-            font-size: 24px;
-            font-weight: bold;
-            text-align: center;
-            opacity: 0;
-            transform: translate(-50%, -50%) scale(0);
-            transition: all 0.5s ease;
-            z-index: 20;
-            border: 3px solid #8B0000;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        }
-        
-        .group-chant.show {
-            opacity: 1;
-            transform: translate(-50%, -50%) scale(1);
-        }
-        
-        /* প্লাকার্ড */
-        .placard {
-            position: absolute;
-            width: 120px;
-            height: 80px;
-            background: white;
-            border: 3px solid #8B0000;
-            border-radius: 5px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            color: #8B0000;
-            text-align: center;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.5s ease;
-            z-index: 5;
-        }
-        
-        .placard.show {
-            opacity: 1;
-            transform: translateY(0);
-            animation: float 2s infinite ease-in-out;
-        }
-        
-        /* কন্ট্রোল প্যানেল */
-        .controls {
-            padding: 25px;
-            background: linear-gradient(45deg, #8B4513, #A0522D);
-            color: white;
-            text-align: center;
-        }
-        
-        .btn {
-            background: linear-gradient(45deg, #32CD32, #228B22);
-            color: white;
-            border: 3px solid #006400;
-            padding: 15px 30px;
-            margin: 8px;
-            border-radius: 30px;
-            cursor: pointer;
-            font-size: 16px;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
-        
-        .btn:hover {
-            background: linear-gradient(45deg, #228B22, #006400);
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
-        }
-        
-        /* টাইটেল */
-        .title {
-            text-align: center;
-            padding: 25px;
-            background: linear-gradient(45deg, #8B4513, #A0522D);
-            color: white;
-            font-size: 26px;
-            font-weight: bold;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-            border-bottom: 3px solid #654321;
-        }
-        
-        .scene-indicator {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: rgba(139, 69, 19, 0.9);
-            color: white;
-            padding: 12px 20px;
-            border-radius: 25px;
-            font-weight: bold;
-            border: 2px solid #654321;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.3);
-            z-index: 10;
-        }
-        
-        /* মোবাইল রেসপনসিভ */
-        @media (max-width: 768px) {
-            .office-scene {
-                height: 400px;
-            }
-            
-            .character {
-                transform: scale(0.7);
-            }
-            
-            .jesan { left: 20px; top: 150px; }
-            .sakib { left: 120px; top: 180px; }
-            .rafid { left: 220px; top: 130px; }
-            .tanvir { left: 320px; top: 160px; }
-            .imran { left: 80px; top: 280px; }
-            .nahiyan { left: 200px; top: 300px; }
-            .mohona { left: 320px; top: 270px; }
-            
-            .speech-bubble {
-                font-size: 12px;
-                max-width: 150px;
-                padding: 8px 12px;
-            }
-            
-            .group-chant {
-                font-size: 18px;
-                padding: 15px 25px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
@@ -419,8 +13,78 @@
         <div class="office-scene">
             <!-- অফিস ডেকোরেশন -->
             <div class="office-decoration window"></div>
-            <div class="office-decoration table"></div>
-            <div class="office-decoration chair"></div>
+            
+            <!-- অফিস ফার্নিচার -->            
+            <div class="office-decoration filing-cabinet"></div>
+            <div class="office-decoration bookshelf"></div>
+            <div class="office-decoration ceiling-light"></div>
+            
+            
+            <!-- ক্যারেক্টার ডেস্ক -->
+            <!-- প্রথম সারি -->
+            <div class="office-decoration desk jesan-desk" id="desk-jesan">
+                <div class="desk-computer" style="left: 10px; bottom: 20px;"></div>
+                <div class="desk-phone" id="phone-jesan" style="right: 10px; bottom: 20px;"></div>
+            </div>
+            <div class="office-decoration desk-chair jesan-chair"></div>
+            <div class="trash" id="trash-jesan"></div>
+            
+            <div class="office-decoration desk sakib-desk" id="desk-sakib">
+                <div class="desk-computer" style="left: 10px; bottom: 20px;"></div>
+                <div class="desk-phone" id="phone-sakib" style="right: 10px; bottom: 20px;"></div>
+            </div>
+            <div class="office-decoration desk-chair sakib-chair"></div>
+            <div class="trash" id="trash-sakib"></div>
+            
+            <div class="office-decoration desk rafid-desk" id="desk-rafid">
+                <div class="desk-computer" style="left: 10px; bottom: 20px;"></div>
+                <div class="desk-phone" id="phone-rafid" style="right: 10px; bottom: 20px;"></div>
+            </div>
+            <div class="office-decoration desk-chair rafid-chair"></div>
+            <div class="trash" id="trash-rafid"></div>
+            
+            <div class="office-decoration desk tanvir-desk" id="desk-tanvir">
+                <div class="desk-computer" style="left: 10px; bottom: 20px;"></div>
+                <div class="desk-phone" id="phone-tanvir" style="right: 10px; bottom: 20px;"></div>
+            </div>
+            <div class="office-decoration desk-chair tanvir-chair"></div>
+            <div class="trash" id="trash-tanvir"></div>
+            
+            <!-- দ্বিতীয় সারি -->
+            <div class="office-decoration desk imran-desk" id="desk-imran">
+                <div class="desk-computer" style="left: 10px; bottom: 20px;"></div>
+                <div class="desk-phone" id="phone-imran" style="right: 10px; bottom: 20px;"></div>
+            </div>
+            <div class="office-decoration desk-chair imran-chair"></div>
+            <div class="trash" id="trash-imran"></div>
+            
+            <div class="office-decoration desk nahiyan-desk" id="desk-nahiyan">
+                <div class="desk-computer" style="left: 10px; bottom: 20px;"></div>
+                <div class="desk-phone" id="phone-nahiyan" style="right: 10px; bottom: 20px;"></div>
+            </div>
+            <div class="office-decoration desk-chair nahiyan-chair"></div>
+            <div class="trash" id="trash-nahiyan"></div>
+            
+            <div class="office-decoration desk mohona-desk" id="desk-mohona">
+                <div class="desk-computer" style="left: 10px; bottom: 20px;"></div>
+                <div class="desk-phone" id="phone-mohona" style="right: 10px; bottom: 20px;"></div>
+            </div>
+            <div class="office-decoration desk-chair mohona-chair"></div>
+            <div class="trash" id="trash-mohona"></div>
+            
+            <!-- স্পার্কল ইফেক্ট -->
+            <div class="sparkle"></div>
+            <div class="sparkle"></div>
+            <div class="sparkle"></div>
+            <div class="sparkle"></div>
+            
+            <!-- পার্টিকেল ইফেক্ট -->
+            <div class="particle" style="left: 10%; top: 60%; animation-delay: 0s;"></div>
+            <div class="particle" style="left: 20%; top: 40%; animation-delay: 1s;"></div>
+            <div class="particle" style="left: 30%; top: 70%; animation-delay: 2s;"></div>
+            <div class="particle" style="left: 70%; top: 50%; animation-delay: 0.5s;"></div>
+            <div class="particle" style="left: 80%; top: 30%; animation-delay: 1.5s;"></div>
+            <div class="particle" style="left: 90%; top: 60%; animation-delay: 2.5s;"></div>
             
             <div class="scene-indicator" id="sceneIndicator">দৃশ্য ১</div>
             
@@ -443,7 +107,6 @@
                                 <div class="eye"></div>
                                 <div class="eye"></div>
                             </div>
-                            <div class="mouth"></div>
                         </div>
                     </div>
                 </div>
@@ -459,7 +122,6 @@
                                 <div class="eye"></div>
                                 <div class="eye"></div>
                             </div>
-                            <div class="mouth"></div>
                         </div>
                     </div>
                 </div>
@@ -475,7 +137,6 @@
                                 <div class="eye"></div>
                                 <div class="eye"></div>
                             </div>
-                            <div class="mouth"></div>
                         </div>
                     </div>
                 </div>
@@ -491,7 +152,6 @@
                                 <div class="eye"></div>
                                 <div class="eye"></div>
                             </div>
-                            <div class="mouth"></div>
                         </div>
                     </div>
                 </div>
@@ -507,7 +167,6 @@
                                 <div class="eye"></div>
                                 <div class="eye"></div>
                             </div>
-                            <div class="mouth"></div>
                         </div>
                     </div>
                 </div>
@@ -523,7 +182,6 @@
                                 <div class="eye"></div>
                                 <div class="eye"></div>
                             </div>
-                            <div class="mouth"></div>
                         </div>
                     </div>
                 </div>
@@ -539,7 +197,6 @@
                                 <div class="eye"></div>
                                 <div class="eye"></div>
                             </div>
-                            <div class="mouth"></div>
                         </div>
                     </div>
                 </div>
@@ -559,209 +216,13 @@
         <div class="controls">
             <button class="btn" onclick="playFullScene()">সম্পূর্ণ দৃশ্য চালাও</button>
             <button class="btn" onclick="startGroupProtest()">সমবেত আন্দোলন</button>
+            <button class="btn" onclick="playRandomDialogues()">র‍্যান্ডম কথোপকথন</button>
             <button class="btn" onclick="resetScene()">রিসেট</button>
         </div>
     </div>
 
-    <script>
-        // ডায়ালগ ডেটা
-        const allDialogues = {
-            jesan: [
-                'সেই কবে থেকে শুনছি আজ বেতন নয় কাল!',
-                'আর কত অপেক্ষা করবো মাস যে শেষ হতে যায়।',
-                'আজকে বেতন না নিয়ে যাওয়াই যাবে না!',
-                'আমরা বেতন ছাড়া ফিরব না!'
-            ],
-            sakib: [
-                'বেতন না পেয়ে খুব করুন হালচাল।',
-                'তোমারও আমার মত টানাটানি বাড়ছে নিশ্চয়ই।',
-                'চলো চলো সবাই ধর নায় বসি।',
-                'আমরা বেতন ছাড়া ফিরব না!'
-            ],
-            rafid: [
-                'একটু অপেক্ষা করো তাহলে বেতন পেতেও পারো।',
-                'আমারও বাজারে বাড়ছে ধার হু হু করে তবু আস্থা হারায়নি মনের জোরে।'
-            ],
-            tanvir: [
-                'এমন উত্তেজিত হলে চলবে না, স্যার নিশ্চয়ই কিছু একটা করবেন।',
-                'এ করো কি...'
-            ],
-            imran: [
-                'বেতন চাই... বেতন চাই...',
-                'আমরা বেতন ছাড়া ফিরব না!'
-            ],
-            nahiyan: [
-                'আমরা বেতন ছাড়া ফিরব না!'
-            ],
-            mohona: [
-                'আমরা বেতন ছাড়া ফিরব না!'
-            ]
-        };
-
-        // ডায়ালগ সিকোয়েন্স
-        const dialogueSequence = [
-            { character: 'jesan', dialogueIndex: 0, angry: true },
-            { character: 'sakib', dialogueIndex: 0, angry: true },
-            { character: 'rafid', dialogueIndex: 0 },
-            { character: 'jesan', dialogueIndex: 1, angry: true },
-            { character: 'sakib', dialogueIndex: 1, angry: true },
-            { character: 'tanvir', dialogueIndex: 0 },
-            { character: 'rafid', dialogueIndex: 1 },
-            { character: 'jesan', dialogueIndex: 2, angry: true },
-            { character: 'sakib', dialogueIndex: 2, angry: true },
-            { character: 'tanvir', dialogueIndex: 1, angry: false }
-        ];
-        
-        let currentDialogueIndex = 0;
-        let dialogueTimeout;
-        
-        // সব স্পিচ বাবল হাইড
-        function hideAllSpeechBubbles() {
-            document.querySelectorAll('.speech-bubble').forEach(bubble => {
-                bubble.classList.remove('show');
-            });
-        }
-        
-        // ক্যারেক্টার এক্সপ্রেশন চেঞ্জ
-        function setCharacterExpression(characterId, isAngry) {
-            const face = document.getElementById(`${characterId}-face`);
-            if (isAngry) {
-                face.classList.add('angry-face');
-            } else {
-                face.classList.remove('angry-face');
-            }
-        }
-        
-        // স্পিচ বাবল শো
-        function showSpeech(characterId, text) {
-            hideAllSpeechBubbles();
-            
-            const bubble = document.getElementById(`speech-${characterId}`);
-            bubble.textContent = text;
-            bubble.classList.add('show');
-            
-            setTimeout(() => {
-                bubble.classList.remove('show');
-            }, 4000);
-        }
-        
-        // ফুল সিন প্লে
-        function playFullScene() {
-            resetScene();
-            currentDialogueIndex = 0;
-            document.getElementById('sceneIndicator').textContent = 'কথোপকথন চলছে...';
-            playNextDialogue();
-        }
-        
-        // নেক্সট ডায়ালগ প্লে
-        function playNextDialogue() {
-            if (dialogueTimeout) {
-                clearTimeout(dialogueTimeout);
-            }
-
-            if (currentDialogueIndex >= dialogueSequence.length) {
-                startGroupProtest();
-                return;
-            }
-            
-            const dialogue = dialogueSequence[currentDialogueIndex];
-            const characterName = dialogue.character;
-            const textToShow = allDialogues[characterName][dialogue.dialogueIndex];
-            
-            setCharacterExpression(characterName, dialogue.angry || false);
-            showSpeech(characterName, textToShow);
-            
-            currentDialogueIndex++;
-            dialogueTimeout = setTimeout(playNextDialogue, 3000);
-        }
-        
-        // গ্রুপ প্রোটেস্ট
-        function startGroupProtest() {
-            if (dialogueTimeout) {
-                clearTimeout(dialogueTimeout);
-            }
-            hideAllSpeechBubbles();
-
-            document.getElementById('sceneIndicator').textContent = 'সমবেত আন্দোলন';
-            
-            // প্রোটেস্ট এনিমেশন
-            document.querySelectorAll('.character').forEach(char => {
-                char.classList.add('protesting');
-                const charId = char.classList[1];
-                setCharacterExpression(charId, true);
-            });
-            
-            // প্লাকার্ড শো
-            document.getElementById('placard1').classList.add('show');
-            document.getElementById('placard2').classList.add('show');
-            
-            // গ্রুপ চ্যান্ট শো
-            const groupChant = document.getElementById('groupChant');
-            groupChant.classList.add('show');
-            
-            // সাউন্ড প্লে
-            document.getElementById('chantSound').play();
-            setTimeout(() => {
-                document.getElementById('protestSound').play();
-            }, 2000);
-            
-            // ক্যারেক্টারদের স্লোগান
-            setTimeout(() => {
-                showSpeech('imran', allDialogues.imran[1]);
-                showSpeech('nahiyan', allDialogues.nahiyan[0]);
-                showSpeech('mohona', allDialogues.mohona[0]);
-            }, 1000);
-            
-            setTimeout(() => {
-                showSpeech('jesan', allDialogues.jesan[3]);
-                showSpeech('sakib', allDialogues.sakib[3]);
-            }, 4000);
-            
-            // প্রোটেস্ট শেষ
-            setTimeout(() => {
-                document.querySelectorAll('.character').forEach(char => {
-                    char.classList.remove('protesting');
-                    const charId = char.classList[1];
-                    setCharacterExpression(charId, false);
-                });
-                groupChant.classList.remove('show');
-                document.getElementById('placard1').classList.remove('show');
-                document.getElementById('placard2').classList.remove('show');
-                hideAllSpeechBubbles();
-            }, 12000);
-        }
-        
-        // রিসেট সিন
-        function resetScene() {
-            if (dialogueTimeout) {
-                clearTimeout(dialogueTimeout);
-            }
-
-            currentDialogueIndex = 0;
-            document.getElementById('sceneIndicator').textContent = 'দৃশ্য ১';
-            
-            hideAllSpeechBubbles();
-            document.getElementById('groupChant').classList.remove('show');
-            document.getElementById('placard1').classList.remove('show');
-            document.getElementById('placard2').classList.remove('show');
-            
-            document.querySelectorAll('.character').forEach(char => {
-                char.classList.remove('protesting');
-                const charId = char.classList[1];
-                setCharacterExpression(charId, false);
-            });
-            
-            // সাউন্ড স্টপ
-            document.getElementById('protestSound').pause();
-            document.getElementById('protestSound').currentTime = 0;
-            document.getElementById('chantSound').pause();
-            document.getElementById('chantSound').currentTime = 0;
-        }
-        
-        // অটো স্টার্ট ডেমো
-        setTimeout(() => {
-            playFullScene();
-        }, 2000);
-    </script>
+    <!-- External JavaScript Files -->
+    <script src="dialogues.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

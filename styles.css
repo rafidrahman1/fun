@@ -1,0 +1,1053 @@
+/* বেসিক স্টাইল */
+body {
+    margin: 0;
+    padding: 20px;
+    background: linear-gradient(135deg, #8B4513 0%, #CD853F 100%);
+    font-family: 'Arial', sans-serif;
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    overflow: hidden;
+    position: relative;
+}
+
+/* অফিস সিন স্টাইল */
+.office-scene {
+    position: relative;
+    height: 600px;
+    background: linear-gradient(to bottom, #F5F5DC 0%, #DEB887 100%);
+    overflow: hidden;
+    border: 3px solid #8B4513;
+}
+
+/* অফিস ডেকোরেশন */
+.office-decoration {
+    position: absolute;
+    z-index: 1;
+}
+
+.window {
+    width: 250px;
+    height: 180px;
+    background: linear-gradient(to bottom, rgba(173, 216, 230, 0.6), rgba(135, 206, 250, 0.4));
+    border: 8px solid #8B4513;
+    top: 30px;
+    right: 80px;
+    animation: sunlight 8s infinite alternate;
+    border-radius: 5px;
+}
+
+.window::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: rgba(139, 69, 19, 0.3);
+}
+
+.window::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 2px;
+    height: 100%;
+    background: rgba(139, 69, 19, 0.3);
+}
+
+.table {
+    width: 400px;
+    height: 25px;
+    background: linear-gradient(to bottom, #8B4513, #A0522D);
+    bottom: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 5px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.chair {
+    width: 40px;
+    height: 50px;
+    background: linear-gradient(45deg, #A0522D, #8B4513);
+    bottom: 80px;
+    left: calc(50% - 80px);
+    transform: translateX(-50%);
+    border-radius: 5px 5px 0 0;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+}
+
+.chair::after {
+    content: '';
+    position: absolute;
+    top: -15px;
+    left: 0;
+    width: 100%;
+    height: 15px;
+    background: linear-gradient(45deg, #A0522D, #8B4513);
+    border-radius: 5px 5px 0 0;
+}
+
+/* অফিস ফার্নিচার */
+.computer {
+    position: absolute;
+    width: 60px;
+    height: 40px;
+    background: #2F4F4F;
+    bottom: 105px;
+    left: calc(50% - 30px);
+    border-radius: 3px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+.computer::after {
+    content: '';
+    position: absolute;
+    top: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 25px;
+    background: #000;
+    border-radius: 3px;
+}
+
+.phone {
+    position: absolute;
+    width: 25px;
+    height: 15px;
+    background: #696969;
+    bottom: 105px;
+    left: calc(50% + 40px);
+    border-radius: 3px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.phone::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 15px;
+    height: 8px;
+    background: #000;
+    border-radius: 2px;
+}
+
+.plant {
+    position: absolute;
+    width: 30px;
+    height: 40px;
+    background: linear-gradient(45deg, #228B22, #32CD32);
+    bottom: 80px;
+    right: 120px;
+    border-radius: 50% 50% 0 0;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+}
+
+.plant::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 8px;
+    background: #8B4513;
+    border-radius: 2px;
+}
+
+.filing-cabinet {
+    position: absolute;
+    width: 50px;
+    height: 80px;
+    background: linear-gradient(45deg, #696969, #808080);
+    bottom: 80px;
+    left: 50px;
+    border-radius: 3px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+}
+
+.filing-cabinet::after {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: 5px;
+    width: 40px;
+    height: 2px;
+    background: #000;
+    box-shadow: 0 15px 0 #000, 0 30px 0 #000, 0 45px 0 #000;
+}
+
+.bookshelf {
+    position: absolute;
+    width: 80px;
+    height: 100px;
+    background: linear-gradient(45deg, #8B4513, #A0522D);
+    bottom: 80px;
+    right: 50px;
+    border-radius: 3px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+}
+
+.bookshelf::after {
+    content: '';
+    position: absolute;
+    top: 15px;
+    left: 5px;
+    width: 70px;
+    height: 15px;
+    background: linear-gradient(45deg, #FF6347, #FF4500);
+    border-radius: 2px;
+    box-shadow: 0 20px 0 linear-gradient(45deg, #4169E1, #1E90FF), 
+                0 40px 0 linear-gradient(45deg, #32CD32, #228B22),
+                0 60px 0 linear-gradient(45deg, #FFD700, #FFA500);
+}
+
+.ceiling-light {
+    position: absolute;
+    width: 100px;
+    height: 20px;
+    background: linear-gradient(to bottom, #FFD700, #FFA500);
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50px;
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.6);
+    animation: lightFlicker 3s infinite ease-in-out;
+}
+
+.ceiling-light::after {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 30px;
+    background: #696969;
+}
+
+.carpet {
+    position: absolute;
+    width: 300px;
+    height: 200px;
+    background: linear-gradient(45deg, #8B4513, #A0522D);
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 10px;
+    opacity: 0.3;
+}
+
+.carpet::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200px;
+    height: 100px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+}
+
+/* ক্যারেক্টার স্টাইল */
+.character {
+    position: absolute;
+    transition: all 0.5s ease;
+    cursor: pointer;
+    z-index: 5;
+    transform-origin: bottom center;
+}
+
+.character-body {
+    width: 80px;
+    height: 100px;
+    border-radius: 40px 40px 15px 15px;
+    position: relative;
+    border: 3px solid #2F4F4F;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: breathe 3s infinite ease-in-out;
+    transition: all 0.3s ease;
+}
+
+.character-head {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    position: absolute;
+    top: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 3px solid #2F4F4F;
+    transition: all 0.3s ease;
+}
+
+.character-face {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.3s ease;
+}
+
+.eyes {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 5px;
+    transition: all 0.3s ease;
+}
+
+.eye {
+    width: 6px;
+    height: 6px;
+    background: #000;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.mouth {
+    position: absolute;
+    left: 50%;
+    top: 80%; /* below the face */
+    transform: translateX(-50%);
+    width: 18px;
+    height: 10px;
+    border: 2px solid #000;
+    border-top: none;
+    border-radius: 0 0 18px 18px;
+    background: none;
+    transition: all 0.3s ease;
+    z-index: 2;
+}
+
+.angry-face ~ .mouth,
+.protesting .mouth {
+    border-radius: 18px;
+    border-top: 2px solid #000;
+    height: 16px;
+    width: 22px;
+    animation: shake 0.4s infinite ease-in-out;
+}
+
+.character-name {
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(139, 69, 19, 0.9);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 15px;
+    font-size: 14px;
+    font-weight: bold;
+    white-space: nowrap;
+    border: 2px solid #8B4513;
+    z-index: 3;
+}
+
+/* স্পিচ বাবল */
+.speech-bubble {
+    position: absolute;
+    background: #FFFAF0;
+    border: 3px solid #8B4513;
+    border-radius: 20px;
+    padding: 12px 18px;
+    min-width: 280px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #2F4F4F;
+    opacity: 0;
+    left: 50%;
+    top: -90px; /* above the head */
+    transform: translateX(-50%);
+    transition: all 0.3s ease;
+    z-index: 10;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    pointer-events: none;
+    transform-origin: center bottom;
+    text-align: center;
+}
+
+.speech-bubble::after {
+    content: '';
+    position: absolute;
+    bottom: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+    border-top: 12px solid #FFFAF0;
+}
+
+.speech-bubble::before {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-top: 15px solid #8B4513;
+}
+
+.speech-bubble.show {
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
+    animation: bubblePop 0.3s ease-out;
+}
+
+/* ক্যারেক্টার স্পেসিফিক ডেস্ক */
+.desk {
+    position: absolute;
+    width: 120px;
+    height: 20px;
+    background: linear-gradient(to bottom, #8B4513, #A0522D);
+    border-radius: 3px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+    z-index: 1;
+}
+
+.desk-chair {
+    position: absolute;
+    width: 25px;
+    height: 30px;
+    background: linear-gradient(45deg, #A0522D, #8B4513);
+    border-radius: 3px 3px 0 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.desk-chair::after {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    background: linear-gradient(45deg, #A0522D, #8B4513);
+    border-radius: 3px 3px 0 0;
+}
+
+/* জেসানের ডেস্ক */
+.jesan-desk {
+    bottom: 120px;
+    left: 200px;
+}
+
+.jesan-chair {
+    bottom: 120px;
+    left: 225px;
+}
+
+/* সাকিবের ডেস্ক */
+.sakib-desk {
+    bottom: 120px;
+    left: 360px;
+}
+
+.sakib-chair {
+    bottom: 120px;
+    left: 385px;
+}
+
+/* রাফিদের ডেস্ক */
+.rafid-desk {
+    bottom: 120px;
+    left: 520px;
+}
+
+.rafid-chair {
+    bottom: 120px;
+    left: 545px;
+}
+
+/* তানভিরের ডেস্ক */
+.tanvir-desk {
+    bottom: 120px;
+    left: 680px;
+}
+
+.tanvir-chair {
+    bottom: 120px;
+    left: 705px;
+}
+
+/* ইমরানের ডেস্ক */
+.imran-desk {
+    bottom: 280px;
+    left: 280px;
+}
+
+.imran-chair {
+    bottom: 280px;
+    left: 305px;
+}
+
+/* নাহিয়ানের ডেস্ক */
+.nahiyan-desk {
+    bottom: 280px;
+    left: 440px;
+}
+
+.nahiyan-chair {
+    bottom: 280px;
+    left: 465px;
+}
+
+/* মোহনার ডেস্ক */
+.mohona-desk {
+    bottom: 280px;
+    left: 600px;
+}
+
+.mohona-chair {
+    bottom: 280px;
+    left: 625px;
+}
+
+/* ক্যারেক্টার স্পেসিফিক স্টাইল - রিপজিশন */
+.jesan { left: 225px; top: 200px; }
+.jesan .character-body { background: linear-gradient(45deg, #32CD32, #228B22); }
+
+.sakib { left: 385px; top: 200px; }
+.sakib .character-body { background: linear-gradient(45deg, #4169E1, #1E90FF); }
+
+.rafid { left: 545px; top: 200px; }
+.rafid .character-body { background: linear-gradient(45deg, #FF6347, #FF4500); }
+
+.tanvir { left: 705px; top: 200px; }
+.tanvir .character-body { background: linear-gradient(45deg, #9370DB, #8A2BE2); }
+
+.imran { left: 305px; top: 360px; }
+.imran .character-body { background: linear-gradient(45deg, #FFD700, #FFA500); }
+
+.nahiyan { left: 465px; top: 360px; }
+.nahiyan .character-body { background: linear-gradient(45deg, #20B2AA, #008B8B); }
+
+.mohona { left: 625px; top: 360px; }
+.mohona .character-body { background: linear-gradient(45deg, #DA70D6, #BA55D3); }
+
+/* এনিমেশন */
+@keyframes breathe {
+    0%, 100% { transform: scale(1) translateY(0); }
+    50% { transform: scale(1.02) translateY(-3px); }
+}
+
+@keyframes protest {
+    0%, 100% { transform: translateY(0) rotate(0deg) scale(1); }
+    25% { transform: translateY(-25px) rotate(-12deg) scale(1.15); }
+    50% { transform: translateY(-30px) rotate(0deg) scale(1.2); }
+    75% { transform: translateY(-20px) rotate(12deg) scale(1.15); }
+}
+
+@keyframes sunlight {
+    0% { box-shadow: inset 0 0 50px rgba(255, 255, 0, 0.2); }
+    100% { box-shadow: inset 0 0 100px rgba(255, 255, 0, 0.4); }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+    20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-30px); }
+    60% { transform: translateY(-15px); }
+}
+
+@keyframes wave {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(15deg); }
+    75% { transform: rotate(-15deg); }
+}
+
+@keyframes sparkle {
+    0%, 100% { opacity: 0; transform: scale(0) rotate(0deg); }
+    50% { opacity: 1; transform: scale(1) rotate(180deg); }
+}
+
+@keyframes particleFloat {
+    0% { 
+        opacity: 0; 
+        transform: translateY(0) scale(0); 
+    }
+    50% { 
+        opacity: 1; 
+        transform: translateY(-50px) scale(1); 
+    }
+    100% { 
+        opacity: 0; 
+        transform: translateY(-100px) scale(0); 
+    }
+}
+
+@keyframes bubblePop {
+    0% { transform: translateX(-50%) scale(0.5); }
+    50% { transform: translateX(-50%) scale(1.1); }
+    100% { transform: translateX(-50%) scale(1); }
+}
+
+@keyframes characterHighlight {
+    0%, 100% { filter: brightness(1); }
+    50% { filter: brightness(1.3) drop-shadow(0 0 10px rgba(255, 255, 255, 0.8)); }
+}
+
+@keyframes lightFlicker {
+    0%, 100% { 
+        box-shadow: 0 0 30px rgba(255, 215, 0, 0.6);
+        opacity: 1;
+    }
+    50% { 
+        box-shadow: 0 0 40px rgba(255, 215, 0, 0.8);
+        opacity: 0.9;
+    }
+    75% { 
+        box-shadow: 0 0 25px rgba(255, 215, 0, 0.5);
+        opacity: 0.95;
+    }
+}
+
+/* প্রোটেস্ট স্টাইল */
+.protesting {
+    animation: protest 1.5s infinite ease-in-out !important;
+}
+
+.protesting .character-body {
+    box-shadow: 0 0 40px rgba(255, 0, 0, 0.6) !important;
+    animation: pulse 0.8s infinite ease-in-out !important;
+}
+
+.protesting .character-head {
+    animation: shake 0.5s infinite ease-in-out !important;
+}
+
+.angry-face .eyes {
+    transform: rotate(10deg);
+    animation: pulse 0.6s infinite ease-in-out;
+}
+
+.angry-face .mouth {
+    border-radius: 12px;
+    border-top: 2px solid #000;
+    height: 12px;
+    width: 16px;
+    animation: shake 0.4s infinite ease-in-out;
+}
+
+/* এনহ্যান্সড ক্যারেক্টার এনিমেশন */
+.character:hover {
+    transform: scale(1.05);
+    transition: all 0.3s ease;
+}
+
+.character:hover .character-body {
+    animation: bounce 1s infinite ease-in-out;
+}
+
+.character:hover .character-head {
+    animation: wave 1s infinite ease-in-out;
+}
+
+/* স্পার্কল ইফেক্ট */
+.sparkle {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: #FFD700;
+    border-radius: 50%;
+    animation: sparkle 2s infinite ease-in-out;
+    z-index: 15;
+}
+
+.sparkle:nth-child(1) { top: 20%; left: 20%; animation-delay: 0s; }
+.sparkle:nth-child(2) { top: 30%; right: 25%; animation-delay: 0.5s; }
+.sparkle:nth-child(3) { bottom: 30%; left: 30%; animation-delay: 1s; }
+.sparkle:nth-child(4) { bottom: 20%; right: 20%; animation-delay: 1.5s; }
+
+/* পার্টিকেল ইফেক্ট */
+.particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: #FF6B6B;
+    border-radius: 50%;
+    animation: particleFloat 3s infinite ease-in-out;
+    z-index: 5;
+}
+
+/* ক্যারেক্টার হাইলাইট */
+.character.speaking {
+    animation: characterHighlight 0.5s ease-in-out;
+}
+
+/* গ্রুপ চ্যান্ট */
+.group-chant {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 0, 0, 0.9);
+    color: white;
+    padding: 20px 40px;
+    border-radius: 15px;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0);
+    transition: all 0.3s ease;
+    z-index: 20;
+    border: 3px solid #8B0000;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.group-chant.show {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+    animation: pulse 1s infinite ease-in-out;
+}
+
+/* প্লাকার্ড */
+.placard {
+    position: absolute;
+    width: 120px;
+    height: 80px;
+    background: white;
+    border: 3px solid #8B0000;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: #8B0000;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+    z-index: 5;
+}
+
+.placard.show {
+    opacity: 1;
+    transform: translateY(0);
+    animation: float 2s infinite ease-in-out;
+}
+
+/* কন্ট্রোল প্যানেল */
+.controls {
+    padding: 25px;
+    background: linear-gradient(45deg, #8B4513, #A0522D);
+    color: white;
+    text-align: center;
+}
+
+.btn {
+    background: linear-gradient(45deg, #32CD32, #228B22);
+    color: white;
+    border: 3px solid #006400;
+    padding: 15px 30px;
+    margin: 8px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.btn:hover::before {
+    left: 100%;
+}
+
+.btn:hover {
+    background: linear-gradient(45deg, #228B22, #006400);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+}
+
+.btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    transition: all 0.1s ease;
+}
+
+/* টাইটেল */
+.title {
+    text-align: center;
+    padding: 25px;
+    background: linear-gradient(45deg, #8B4513, #A0522D);
+    color: white;
+    font-size: 26px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    border-bottom: 3px solid #654321;
+}
+
+.scene-indicator {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(139, 69, 19, 0.9);
+    color: white;
+    padding: 12px 20px;
+    border-radius: 25px;
+    font-weight: bold;
+    border: 2px solid #654321;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+    z-index: 10;
+}
+
+/* মোবাইল রেসপনসিভ */
+@media (max-width: 768px) {
+    .office-scene {
+        height: 400px;
+    }
+    
+    .character {
+        transform: scale(0.7);
+    }
+    
+    .jesan { left: 60px; top: 150px; }
+    .sakib { left: 160px; top: 150px; }
+    .rafid { left: 260px; top: 150px; }
+    .tanvir { left: 360px; top: 150px; }
+    .imran { left: 120px; top: 280px; }
+    .nahiyan { left: 220px; top: 280px; }
+    .mohona { left: 320px; top: 280px; }
+    
+    /* মোবাইল ডেস্ক */
+    .desk {
+        width: 80px;
+        height: 15px;
+    }
+    
+    .jesan-desk { bottom: 80px; left: 55px; }
+    .sakib-desk { bottom: 80px; left: 155px; }
+    .rafid-desk { bottom: 80px; left: 255px; }
+    .tanvir-desk { bottom: 80px; left: 355px; }
+    .imran-desk { bottom: 210px; left: 115px; }
+    .nahiyan-desk { bottom: 210px; left: 215px; }
+    .mohona-desk { bottom: 210px; left: 315px; }
+    
+    .jesan-chair { bottom: 80px; left: 80px; }
+    .sakib-chair { bottom: 80px; left: 180px; }
+    .rafid-chair { bottom: 80px; left: 280px; }
+    .tanvir-chair { bottom: 80px; left: 380px; }
+    .imran-chair { bottom: 210px; left: 140px; }
+    .nahiyan-chair { bottom: 210px; left: 240px; }
+    .mohona-chair { bottom: 210px; left: 340px; }
+    
+    .speech-bubble {
+        font-size: 12px;
+        max-width: 150px;
+        padding: 8px 12px;
+    }
+    
+    .group-chant {
+        font-size: 18px;
+        padding: 15px 25px;
+    }
+    
+    /* মোবাইল অফিস ফার্নিচার */
+    .window {
+        width: 150px;
+        height: 100px;
+        top: 20px;
+        right: 20px;
+    }
+    
+    .table {
+        width: 250px;
+        bottom: 60px;
+    }
+    
+    .chair {
+        width: 25px;
+        height: 35px;
+        bottom: 60px;
+        left: calc(50% - 50px);
+    }
+    
+    .computer {
+        width: 40px;
+        height: 25px;
+        bottom: 85px;
+        left: calc(50% - 20px);
+    }
+    
+    .computer::after {
+        width: 35px;
+        height: 20px;
+        top: -20px;
+    }
+    
+    .phone {
+        width: 18px;
+        height: 10px;
+        bottom: 85px;
+        left: calc(50% + 25px);
+    }
+    
+    .plant {
+        width: 20px;
+        height: 25px;
+        bottom: 60px;
+        right: 80px;
+    }
+    
+    .filing-cabinet {
+        width: 30px;
+        height: 50px;
+        bottom: 60px;
+        left: 20px;
+    }
+    
+    .bookshelf {
+        width: 50px;
+        height: 60px;
+        bottom: 60px;
+        right: 20px;
+    }
+    
+    .ceiling-light {
+        width: 60px;
+        height: 15px;
+        top: 10px;
+    }
+    
+    .carpet {
+        width: 200px;
+        height: 120px;
+    }
+}
+
+/* ডেস্ক আইটেম */
+.desk-computer {
+    position: absolute;
+    width: 40px;
+    height: 25px;
+    background: #2F4F4F;
+    border-radius: 2px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.desk-computer::after {
+    content: '';
+    position: absolute;
+    top: -18px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 35px;
+    height: 18px;
+    background: #000;
+    border-radius: 2px;
+}
+
+.desk-phone {
+    position: absolute;
+    width: 18px;
+    height: 10px;
+    background: #696969;
+    border-radius: 2px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+.desk-phone::after {
+    content: '';
+    position: absolute;
+    top: 1px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 12px;
+    height: 6px;
+    background: #000;
+    border-radius: 1px;
+}
+
+@keyframes phoneFly {
+    0% { opacity: 1; transform: translate(0,0) rotate(0deg); }
+    80% { opacity: 1; }
+    100% { opacity: 0; transform: translate(var(--fly-x, 200px), var(--fly-y, -200px)) rotate(720deg) scale(0.5); }
+}
+
+@keyframes deskFlip {
+    0% { transform: rotateX(0deg) translate(0,0); }
+    30% { transform: rotateX(30deg) translateY(-10px) translate(0,0); }
+    60% { transform: rotateX(120deg) translateY(-40px) translate(0,0); }
+    100% { transform: rotateX(180deg) translateY(-60px) translate(var(--desk-fly-x, 0px), var(--desk-fly-y, 0px)); }
+}
+
+@keyframes trashScatter {
+    0% { opacity: 0; transform: scale(0) translate(0,0) rotate(0deg); }
+    20% { opacity: 1; transform: scale(1) translate(var(--trash-x, 0px), var(--trash-y, 0px)) rotate(var(--trash-rot, 0deg)); }
+    100% { opacity: 1; transform: scale(1) translate(var(--trash-x, 0px), var(--trash-y, 0px)) rotate(var(--trash-rot, 0deg)); }
+}
+
+.flying-phone {
+    animation: phoneFly 1.2s cubic-bezier(0.4,1.6,0.6,1) infinite;
+    z-index: 20 !important;
+}
+
+.flipped-desk {
+    animation: deskFlip 1.2s cubic-bezier(0.4,1.6,0.6,1) forwards;
+    z-index: 1;
+}
+
+.trash {
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    background: #bbb;
+    border-radius: 50%;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    opacity: 0;
+    z-index: 12;
+}
+
+.trash-scatter {
+    animation: trashScatter 1.2s cubic-bezier(0.4,1.6,0.6,1) infinite;
+}
