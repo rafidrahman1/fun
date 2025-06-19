@@ -102,6 +102,7 @@ const dialogueSequence = [
     { character: 'imran', dialogueIndex: 0 },
     { character: 'mohona', dialogueIndex: 0 },
     { character: 'nahiyan', dialogueIndex: 0 },
+    { character: 'tanvir', dialogueIndex: 0 },
 
     // দ্বিতীয় দফা - আরও সমস্যা
     { character: 'jesan', dialogueIndex: 1, angry: true },
@@ -110,6 +111,7 @@ const dialogueSequence = [
     { character: 'imran', dialogueIndex: 1 },
     { character: 'mohona', dialogueIndex: 1 },
     { character: 'nahiyan', dialogueIndex: 1 },
+    { character: 'tanvir', dialogueIndex: 1 },
 
     // তৃতীয় দফা - সমাধানের প্রস্তাব
     { character: 'jesan', dialogueIndex: 2, angry: true },
@@ -118,6 +120,7 @@ const dialogueSequence = [
     { character: 'imran', dialogueIndex: 2 },
     { character: 'mohona', dialogueIndex: 2 },
     { character: 'nahiyan', dialogueIndex: 2 },
+    { character: 'tanvir', dialogueIndex: 2 },
 
     // চতুর্থ দফা - চূড়ান্ত দাবি
     { character: 'jesan', dialogueIndex: 3, angry: true },
@@ -126,6 +129,7 @@ const dialogueSequence = [
     { character: 'imran', dialogueIndex: 3 },
     { character: 'mohona', dialogueIndex: 3 },
     { character: 'nahiyan', dialogueIndex: 3 },
+    { character: 'tanvir', dialogueIndex: 3 },
 
     // পঞ্চম দফা - সবাই একসাথে
     { character: 'jesan', dialogueIndex: 4, angry: true },
@@ -133,7 +137,8 @@ const dialogueSequence = [
     { character: 'rafid', dialogueIndex: 4 },
     { character: 'imran', dialogueIndex: 4 },
     { character: 'mohona', dialogueIndex: 4 },
-    { character: 'nahiyan', dialogueIndex: 4 }
+    { character: 'nahiyan', dialogueIndex: 4 },
+    { character: 'tanvir', dialogueIndex: 4 }
 ];
 
 // ডায়ালগ ফাংশন
